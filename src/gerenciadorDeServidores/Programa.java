@@ -11,10 +11,32 @@ public class Programa {
 	
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		
-		String ip = "172.18.0.1";
-		int tempo = 5;
-		Servidor servidor = new Servidor(ip, tempo);
+
+		System.out.print("Insira o IP do servidor: ");
+		String ip = input.nextLine();
+		while(ip.length()<=7) {
+			System.out.print("Insira o IP do servidor: ");
+			ip = input.nextLine();	
+		}
+		System.out.print("Insira o nome do servidor: ");
+		String nome = input.nextLine();
+		while(nome.length()<=0) {
+			System.out.print("Insira o nome do servidor: ");
+			nome = input.nextLine();
+		}
+		System.out.print("Insira o e-mail do responsável: ");
+		String responsavel = input.nextLine();
+		while(responsavel.length()<=0) {
+			System.out.print("Insira o e-mail do responsável: ");
+			responsavel = input.nextLine();
+		}
+		System.out.print("Insira o tempo de resposta: ");
+		int tempo = input.nextInt();
+		while(tempo<=0) {
+			System.out.print("Insira o tempo de resposta: ");
+			tempo = input.nextInt();
+		}
+		Servidor servidor = new Servidor(ip, tempo, nome, responsavel);
 		input.close();
 		servidor.setUltimoAtivo(LocalTime.now());
 		servidor.setPrimeiraVerificacao(LocalTime.now());

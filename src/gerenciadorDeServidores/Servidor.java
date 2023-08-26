@@ -25,10 +25,12 @@ public class Servidor {
 		System.out.println("Tempo em atividade: " + (int)((this.getContadorExecoes() - this.getContadorParadas())*5));
 		System.out.println("Tempo em inatividade: "+(int)(this.getContadorParadas()*5));
 	}
-	public Servidor(String ip, int tempo) {
+	public Servidor(String ip, int tempo, String nome, String responsavel) {
 		this.setIp(ip);
 		this.setTempo(tempo);
 		this.setPrimeiraVerificacao(LocalTime.now());
+		this.setEmail(responsavel);;
+		this.setNome(nome);;
 	}
 	public String getIp() {
 		return ip;
